@@ -6,6 +6,7 @@
 package com.seamfix.kyc.bfp.queue;
 
 import com.seamfix.kyc.bfp.BsClazz;
+import com.seamfix.kyc.bfp.syncs.MockActivationRequest;
 import javax.annotation.Resource;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -28,11 +29,23 @@ public class JmsQueue extends BsClazz {
     @Resource(lookup = "java:/bio/queue/SubscriberDetail")
     private Queue subscriberDetailQueue;
 
+    @Resource (lookup = "java:/bio/queue/mockActivation")
+    private Queue mockActivationQueue;
+    
     public boolean queueSubscriberMsisdn(String msisdn) {
         Message msg = ctx.createObjectMessage(msisdn);
         ctx.createProducer()
                 .setDeliveryMode(DeliveryMode.PERSISTENT)
                 .send(subscriberDetailQueue, msg);
+        return true;
+    }
+    
+    public boolean queuemockActivation(MockActivationRequest req ){
+        Message msg = ctx.createObjectMessage(req);
+       
+        ctx.createProducer()
+                .setDeliveryMode(DeliveryMode.PERSISTENT)
+                .send(mockActivationQueue,msg);
         return true;
     }
 }
