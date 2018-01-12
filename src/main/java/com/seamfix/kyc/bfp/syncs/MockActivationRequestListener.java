@@ -71,6 +71,7 @@ public class MockActivationRequestListener extends BsClazz implements MessageLis
         catch(Exception e){
            response.setCode(-1);
            response.setDescription("Activation Service failed");
+           logger.error("Activation Service failed", e);
         }
         return response;
     }
