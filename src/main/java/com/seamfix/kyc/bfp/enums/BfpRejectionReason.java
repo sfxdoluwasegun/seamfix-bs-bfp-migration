@@ -1,0 +1,69 @@
+/**
+ * 
+ */
+package com.seamfix.kyc.bfp.enums;
+
+/**
+ * @author dawuzi
+ *
+ */
+public enum BfpRejectionReason {
+
+	NULL_MSISDN_AND_SERIAL_NUMBER("NULL MSISDN AND SERIAL NUMBER"),
+	DUPLICATE_SIM_SERIAL("DUPLICATE SIM SERIAL"),
+	INVALID_SIM_SERIAL("INVALID SIM SERIAL"),
+	ERROR_VALIDATING_SIM_SERIAL("ERROR VALIDATING SIM SERIAL"),
+	EXCEPTION("EXCEPTION"),
+        NULL_META_DATA(),
+        NULL_ENROLMENT_LOG(),
+	BLACKLISTED_SYNC_FILE("BLACKLISTED SYNC FILE"),
+	BLACKLISTED_MAC_ADDRESS_OR_KIT("BLACKLISTED MAC ADDRESS OR KIT"),
+	BLACKLISTED_APP_VERSION("BLACKLISTED APP VERSION"),
+	BLACKLISTED_AGENT("BLACKLISTED AGENT"),
+	INVALID_NULL_MSISDN_REGISTRATION("INVALID NULL MSISDN REGISTRATION"),
+	CLIENT_MAC_ADDRESS_MISMATCH,
+	CLIENT_DEVICE_ID_MISMATCH,
+	KIT_NOT_TAGGED("KIT NOT TAGGED"),
+	UNREGISTERED_MAC_ADDRESS,
+	UNREGISTERED_DEVICE_ID,
+        NULL_MAC_ADDRESS, 
+        NULL_DEVICE_ID,
+	MAC_ADDRESS_ASSOCIATED_WITH_MULTIPLE_KITS,
+	MAC_ADDRESS_KIT_TAG_MISMATCH,
+	INVALID_SYNC_FILE,
+	INVALID_MSISDN,
+	BAD_REGISTRATION_TIME,
+	FAILED_SIM_SWAP("SIM SWAP FAILED"),
+//	UNREGISTERED_MAC_ADDRESS,
+//	UNREGISTERED_MAC_ADDRESS,
+//	DUPLICATE_SIM_SERIAL("DUPLICATE SIM SERIAL"),
+//	DUPLICATE_SIM_SERIAL("DUPLICATE SIM SERIAL"),
+//	DUPLICATE_SIM_SERIAL("DUPLICATE SIM SERIAL"),
+//	DUPLICATE_SIM_SERIAL("DUPLICATE SIM SERIAL"),
+	;
+
+	private String code;
+
+	public String getCode() {
+		return this.code;
+	}
+	
+	BfpRejectionReason() {
+		this.code = name().replaceAll("_", " ");
+	}	
+
+	BfpRejectionReason(String code) {
+		this.code = code;
+	}
+
+	public static BfpRejectionReason fromString(String text) {
+		if (text != null) {
+			for (BfpRejectionReason b : BfpRejectionReason.values()) {
+				if (text.equalsIgnoreCase(b.code.trim())) { 
+					return b;
+				}
+			}
+		}
+		return null;
+	}
+}

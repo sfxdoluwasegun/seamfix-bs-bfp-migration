@@ -1,0 +1,6 @@
+/target/
+*.properties
+.[cps]*
+/logs/
+/bin/
+bfp.log
