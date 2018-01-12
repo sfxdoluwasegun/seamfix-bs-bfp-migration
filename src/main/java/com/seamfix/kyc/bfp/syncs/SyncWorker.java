@@ -176,7 +176,7 @@ public class SyncWorker extends BsClazz implements IWorker {
             }
 
             boolean callActivationService = getBool(BfpProperty.MOCK_ACTIVATION_SERVICE);
-            if(!callActivationService){
+            if(callActivationService){
                 List<MsisdnDetail> msisdns = (List<MsisdnDetail>) items.get(ProxyKeyEnum.MSISDNS);
                     if (!msisdns.isEmpty()) {
                         msisdns.stream().forEach((msisdn) -> {
