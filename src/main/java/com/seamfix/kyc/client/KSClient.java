@@ -3,6 +3,7 @@ package com.seamfix.kyc.client;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
@@ -17,8 +18,14 @@ public interface KSClient {
 	public MsisdnResponse verifyMsisdn(@FormParam("msisdn") String msisdn);
 
 	@POST
-    @Path("simswap/simchange")
-    @Produces({MediaType.APPLICATION_JSON})
-    public SimSwapResponse doSwap(@FormParam("msisdn") String msisdn, @FormParam("orderNumber") String orderNumber, 
-    		@FormParam("newPUK") String newPUK, @FormParam("newSimSerial") String newSimSerial);
+        @Path("simswap/simchange")
+        @Produces({MediaType.APPLICATION_JSON})
+        public SimSwapResponse doSwap(@FormParam("msisdn") String msisdn, @FormParam("orderNumber") String orderNumber, 
+    	@FormParam("newPUK") String newPUK, @FormParam("newSimSerial") String newSimSerial);
+        
+        @POST
+	@Path("/activation/{uniqueId}/{phoneNumber}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public ActivationResponse doActivation(@PathParam("uniqueId") String uniqueId, @PathParam("phoneNumber") String phoneNumber);
+
 }
