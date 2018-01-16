@@ -23,24 +23,24 @@
             <type>jar</type>
         </dependency>
         <dependency>
-            <groupId>com.seamfix.model</groupId>
-            <artifactId>bs-model</artifactId>
-            <version>1.4.4-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.seamfix.model</groupId>
-            <artifactId>bfp-model</artifactId>
-            <version>1.0.6-SNAPSHOT</version>
-        </dependency>
+           <groupId>com.seamfix.model</groupId>
+           <artifactId>bs-model</artifactId>
+           <version>1.4.6-SNAPSHOT</version>
+       </dependency>
+       <dependency>
+           <groupId>com.seamfix.model</groupId>
+           <artifactId>bfp-model</artifactId>
+           <version>1.0.7-SNAPSHOT</version>
+       </dependency>
+       <dependency>
+           <groupId>com.seamfix.model</groupId>
+           <artifactId>km-model</artifactId>
+           <version>1.7.1-SNAPSHOT</version>
+       </dependency>
         <dependency>
             <groupId>com.sf.keyczar</groupId>
             <artifactId>sfx.crypto</artifactId>
             <version>1.0.0</version>
-        </dependency>
-        <dependency>
-            <groupId>com.seamfix.model</groupId>
-            <artifactId>km-model</artifactId>
-            <version>1.7.1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.sf.location</groupId>

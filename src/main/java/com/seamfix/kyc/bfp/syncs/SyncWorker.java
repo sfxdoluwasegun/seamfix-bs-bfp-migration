@@ -33,6 +33,7 @@ import com.seamfix.kyc.bfp.enums.BfpProperty;
 import com.seamfix.kyc.bfp.enums.BfpRejectionReason;
 import com.seamfix.kyc.bfp.enums.ProxyKeyEnum;
 import com.seamfix.kyc.bfp.enums.RegistrationUsecaseEnum;
+import com.seamfix.kyc.bfp.enums.UsecaseEnum;
 import com.seamfix.kyc.bfp.exception.DigestException;
 import com.seamfix.kyc.bfp.exception.EncryptionException;
 import com.seamfix.kyc.bfp.exception.InvalidSyncFileNameException;
@@ -181,7 +182,12 @@ public class SyncWorker extends BsClazz implements IWorker {
                     if (!msisdns.isEmpty()) {
                         msisdns.stream().forEach((msisdn) -> {
                             MockActivationRequest mar = new MockActivationRequest();
-                            mar.setMsisdn(msisdn.getMsisdn());
+                            if(mar.getUsecase().equals(UsecaseEnum.NM.name())){
+                                mar.setMsisdn(msisdn.getMsisdn());
+                            }
+                            if(mar.getUsecase().equals(UsecaseEnum.NS.name())){
+                                mar.setMsisdn(msisdn.getSerial());
+                            }
                             mar.setUniqueId(userId.getUniqueId());
                             jmsQueue.queuemockActivation(mar);
                         });
