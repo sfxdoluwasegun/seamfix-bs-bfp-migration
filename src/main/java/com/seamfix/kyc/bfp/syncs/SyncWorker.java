@@ -181,13 +181,18 @@ public class SyncWorker extends BsClazz implements IWorker {
                 List<MsisdnDetail> msisdns = (List<MsisdnDetail>) items.get(ProxyKeyEnum.MSISDNS);
                     if (!msisdns.isEmpty()) {
                         msisdns.stream().forEach((msisdn) -> {
+                            UsecaseEnum ue = msisdn.getMsisdn() == null || msisdn.getMsisdn().isEmpty() ? UsecaseEnum.NS : UsecaseEnum.NM;
+                            String subscriberInfo = msisdn.getMsisdn();
+                            switch (ue) {
+                                case NM:
+                                    subscriberInfo = msisdn.getMsisdn();
+                                    break;
+                                case NS:
+                                    subscriberInfo = msisdn.getSerial();
+                                    break;
+                            }
                             MockActivationRequest mar = new MockActivationRequest();
-                            if(mar.getUsecase().equals(UsecaseEnum.NM.name())){
-                                mar.setMsisdn(msisdn.getMsisdn());
-                            }
-                            if(mar.getUsecase().equals(UsecaseEnum.NS.name())){
-                                mar.setMsisdn(msisdn.getSerial());
-                            }
+                            mar.setMsisdn(subscriberInfo);
                             mar.setUniqueId(userId.getUniqueId());
                             jmsQueue.queuemockActivation(mar);
                         });
