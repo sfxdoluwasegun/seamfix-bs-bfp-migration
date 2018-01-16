@@ -12,8 +12,17 @@ import java.io.Serializable;
  * @author Clement
  */
 public class MockActivationRequest implements Serializable {
+    String usecase;
     String msisdn;
     String uniqueId;
+
+    public String getUsecase() {
+        return usecase;
+    }
+
+    public void setUsecase(String usecase) {
+        this.usecase = usecase;
+    }
 
     public String getMsisdn() {
         return msisdn;

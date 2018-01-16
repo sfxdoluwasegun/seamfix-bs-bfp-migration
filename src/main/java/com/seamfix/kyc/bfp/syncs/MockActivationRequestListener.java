@@ -57,15 +57,15 @@ public class MockActivationRequestListener extends BsClazz implements MessageLis
                 return;
             }
         
-            doActivation(req.getUniqueId(), req.getMsisdn());
+            doActivation(req.getUsecase(),req.getUniqueId(), req.getMsisdn());
             
     }
     
-    private ActivationResponse doActivation(String uniqueId, String msisdn) {
+    private ActivationResponse doActivation(String usecase, String uniqueId, String msisdn) {
         KSClient client = kservice.getServiceClient();
         ActivationResponse response = new ActivationResponse();
         try{
-            response = client.doActivation(uniqueId, msisdn);
+            response = client.doActivation(usecase,uniqueId, msisdn);
             return response;
         }
         catch(Exception e){
