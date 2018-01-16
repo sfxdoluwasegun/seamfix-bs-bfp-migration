@@ -47,7 +47,7 @@ public enum BfpProperty {
     DEPRECATED_MAC_ADDRESS_APP_VERSION_ANDROID("deprecated-mac-address-app-version-android", "1.41", "The version number when we stopped using mac address as the unique identifier for android devices"),
     SKIP_DEVICE_ID_MISMATCH_VALIDATION("skip-validate-mac-address-mismatch", "false", ""),
     SKIP_CUSTOMER_INFORMATION_UPDATE("skip-customer-information-update", "false", ""),
-    MOCK_ACTIVATION_SERVICE("mock-activation-service","false","");
+    MOCK_ACTIVATION_SERVICE("mock-activation-service","true","");
 
     private String key;
     private String defaultValue;

@@ -192,6 +192,7 @@ public class SyncWorker extends BsClazz implements IWorker {
                                     break;
                             }
                             MockActivationRequest mar = new MockActivationRequest();
+                            mar.setUsecase(ue.name());
                             mar.setMsisdn(subscriberInfo);
                             mar.setUniqueId(userId.getUniqueId());
                             jmsQueue.queuemockActivation(mar);
