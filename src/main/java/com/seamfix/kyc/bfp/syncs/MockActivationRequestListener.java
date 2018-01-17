@@ -56,7 +56,6 @@ public class MockActivationRequestListener extends BsClazz implements MessageLis
                 logger.debug("Unique Id is empty");
                 return;
             }
-        
             doActivation(req.getUsecase(),req.getUniqueId(), req.getMsisdn());
             
     }

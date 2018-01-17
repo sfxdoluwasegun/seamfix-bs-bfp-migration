@@ -24,7 +24,7 @@ public interface KSClient {
     	@FormParam("newPUK") String newPUK, @FormParam("newSimSerial") String newSimSerial);
         
         @POST
-	@Path("/{usecase}/{uniqueId}/{phoneNumber}")
+	@Path("/activation/{usecase}/{uniqueId}/{phoneNumber}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public ActivationResponse doActivation(@PathParam("usecase") String usecase,@PathParam("uniqueId") String uniqueId, @PathParam("phoneNumber") String phoneNumber);
 
