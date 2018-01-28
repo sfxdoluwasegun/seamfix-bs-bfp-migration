@@ -203,8 +203,8 @@
         </plugins>
     </build>
     <scm>
-        <connection>scm:git:git@singlewindow.seamfix.com/kyc/bfp.git</connection>
-        <developerConnection>scm:git:git@singlewindow.seamfix.com/kyc/bfp.git</developerConnection>
-        <url>http://singlewindow.seamfix.com/kyc/bfp.git</url>
+        <connection>scm:git:git@singlewindow.seamfix.com/kyc/bs-bfp.git</connection>
+        <developerConnection>scm:git:git@singlewindow.seamfix.com/kyc/bs-bfp.git</developerConnection>
+        <url>http://singlewindow.seamfix.com/kyc/bs-bfp.git</url>
     </scm>
 </project>
