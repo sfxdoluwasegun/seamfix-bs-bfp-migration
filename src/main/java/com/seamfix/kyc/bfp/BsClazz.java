@@ -3,15 +3,17 @@ package com.seamfix.kyc.bfp;
 import java.math.BigDecimal;
 
 import com.seamfix.kyc.bfp.enums.BfpProperty;
-
+import com.seamfix.filereader.AppProperties;
+import com.seamfix.filereader.FileProperties;
 import nw.commons.NeemClazz;
-import nw.commons.cache.PropertiesCache;
+
 
 public abstract class BsClazz extends NeemClazz {
 
+	private final AppProperties appProps;
 	public BsClazz() {
 		setTargetPropertyFilename("kyc-bfp.properties");
-		appProps = PropertiesCache.getPropertyFile(getTargetPropertyFilename());
+		appProps = FileProperties.getPropertyFile(getTargetPropertyFilename());
 	}
 
 	protected BigDecimal getBigDecimal(BfpProperty bfpProperty){
