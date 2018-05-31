@@ -10,7 +10,7 @@ import nw.commons.NeemClazz;
 
 public abstract class BsClazz extends NeemClazz {
 
-	private final AppProperties appProps;
+        public  final AppProperties appProps;
 	public BsClazz() {
 		setTargetPropertyFilename("kyc-bfp.properties");
 		appProps = FileProperties.getPropertyFile(getTargetPropertyFilename());
